@@ -1,23 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Routes, Router, Route} from 'react-router-dom'
+import ALoad from './components/ALoad';
+import LoadForm from './components/LoadForm';
+import LoadList from './components/LoadList';
+const {useState} = require("react");
 
 function App() {
+  const [loads, setLoads] = useState([]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route element = {<LoadList loads = {loads} setLoads = {setLoads}/>} path = "/home"/>
+          <Route element = {<LoadForm loads = {loads} setLoads = {setLoads}/>} path = "/loads/new"/>
+          <Route element = {<ALoad/>} path = "/loads/:id"/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
