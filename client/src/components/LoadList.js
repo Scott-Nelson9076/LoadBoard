@@ -43,7 +43,7 @@ const LoadList = (props) => {
                 </table>
             </div>
             <div>
-                <button className = "btn-success" onClick={addNew}>Add A Load To The Board</button>
+                <button className = "btn btn-success" onClick={addNew}>Add A Load To The Board</button>
             </div>
         </div>
     )

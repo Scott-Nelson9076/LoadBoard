@@ -86,13 +86,13 @@ const ALoad = (props) => {
                             <td>{startingAddress.startingStreetAddress}, {startingAddress.startingCity}, {startingAddress.startingState}, {startingAddress.startingZip}</td>
                             <td>{endingAddress.endingStreetAddress}, {endingAddress.endingCity}, {endingAddress.endingState}, {endingAddress.endingZip}</td>
                             <td>${pay}</td>
-                            <td><button className ="btn-success" onClick={(e) => acceptLoad(id)}>Accept Load</button></td>
+                            <td><button className ="btn btn-success" onClick={(e) => acceptLoad(id)}>Accept Load</button></td>
                         </tr>
                     </tbody>
                 </table>
                 <div>
-                    <button className ="btn-success" onClick={goHome}>Home</button>
-                    <button className ="btn-success" style={{margin:20}} onClick = {goEdit}>Edit This Load</button>
+                    <button className ="btn btn-success" onClick={goHome}>Home</button>
+                    <button className ="btn btn-danger" style={{margin:20}} onClick = {goEdit}>Edit This Load</button>
                 </div>
             </div>
         </div>

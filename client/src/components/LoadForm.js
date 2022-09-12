@@ -204,7 +204,7 @@ const LoadForm = (props) => {
             </div>
             </form>
             <div>
-                <button style = {{margin:20}} className = "btn-success" onClick={goHome}>Home</button>
+                <button style = {{margin:20}} className = "btn btn-success" onClick={goHome}>Home</button>
             </div>
         </div>
     )
