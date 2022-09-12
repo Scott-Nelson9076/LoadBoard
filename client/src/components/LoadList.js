@@ -1,12 +1,16 @@
-import {Link} from 'react-router-dom';
+import {useNavigate, Link} from 'react-router-dom';
 import axios from 'axios';
 const {useEffect, useState} = require("react");
 
 const LoadList = (props) => {
     const {loads, setLoads} = props;
-    
+    const navigate = useNavigate();
     const classes = 'table table-bordered'
 
+    const addNew = (e) => {
+        e.preventDefault()
+        navigate("/loads/new")
+    }
     useEffect(() => {
         axios.get('http://localhost:8000/api/loads')
         .then((res) => {setLoads(res.data)})
@@ -15,17 +19,17 @@ const LoadList = (props) => {
 
     return (
         <div>
-            <h1>Loads Available</h1>
+            <h2>Loads Available</h2>
             <div className = "container">
                 <table className = "table table-bordered table-hover">
                     <tbody>
                         <tr>
                             <th>Load</th>
                             <th>Load Type</th>
-                            <th>Endorsements</th>
+                            <th>Endorsements Required</th>
                             <th>Weight</th>
-                            <th>Distance</th>
-                            <th>Pay</th>
+                            <th>Distance (In Miles)</th>
+                            <th>Pay (In USD)</th>
                         </tr>
                         {loads.map((load, index) => {return <tr key = {index} className = "table-striped">
                             <td><Link to = {'/loads/' + load._id}>{load.load}</Link></td>
@@ -37,6 +41,9 @@ const LoadList = (props) => {
                         </tr>})}
                     </tbody>
                 </table>
+            </div>
+            <div>
+                <button className = "btn-success" onClick={addNew}>Add A Load To The Board</button>
             </div>
         </div>
     )

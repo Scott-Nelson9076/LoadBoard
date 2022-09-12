@@ -25,6 +25,11 @@ const LoadForm = (props) => {
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
 
+    const goHome = (e) => {
+        e.preventDefault()
+        navigate("/home")
+    }
+
     const changeStartAddressCity = (e) => {
         const newVal = e.target.value;
         setStartingAddress((prevState) => {
@@ -123,47 +128,48 @@ const LoadForm = (props) => {
 
     return (
         <div className = "container">
-            <h2>Add A Load To The Board</h2>
+            <h1>Add A Load To The Board</h1>
             <form onSubmit={submitLoadHandler} className = "form">
             {errors.map((err,index) => <div key = {index}>{err}</div>)}
-            <div className = "form-group">
+            <h2>Load Details:</h2>
+            <div className = "form-row">
                 <label>Load:</label>
                 <input className ="form-control" type = "text" onChange={(e) => setLoad(e.target.value)}/>
             </div>
-            <div className = "form-group">
+            <div className = "form-row">
                 <label>Type:</label>
                 <input className = "form-control" type = "text" onChange={(e) => setType(e.target.value)}/>
             </div>
-            <div className = "form-group" >
+            <div className = "form-row" >
                 <label>Endorsements:</label>
                 <input className = "form-control" type = "text" onChange = {(e) => setEndorsements(e.target.value)}/>
             </div>
-            <div className = "form-group">
+            <div className = "form-row">
                 <label>Weight:</label>
                 <input className = "form-control" type = "number" onChange={(e) => setWeight(e.target.value)}/>
             </div>
-            <div className = "form-group">
-                <label>Starting Address:</label>
-                <div className = "form-group">
+            <div className = "form-row">
+                <h2>Starting Address:</h2>
+                <div className = "form-row">
                     <label>Starting City:</label>
                     <input className = "form-control" type = "text" onChange = {changeStartAddressCity}/>
                 </div>
-                <div className = "form-group">
+                <div className = "form-row">
                     <label>Starting State:</label>
                     <input className = "form-control" type = "text" onChange = {changeStartAddressState}/>
                 </div>
-                <div className = "form-group">
+                <div className = "form-row">
                     <label>Starting Zip:</label>
                     <input className = "form-control" type = "number" onChange={changeStartAddressZip}/>
                 </div>
-                <div className = "form-group">
+                <div className = "form-row">
                     <label>Starting Street Address:</label>
                     <input className = "form-control" type = "text" onChange={changeStartAddressStreetAddress}/>
                 </div>
                 
             </div>
             <div className = "form-group">
-                <label>Ending Address:</label>
+                <h2>Ending Address:</h2>
                 <div className = "form-group" >
                     <label>Ending City:</label>
                     <input className = "form-control" type = "text" onChange = {changeEndAddressCity}/>
@@ -181,6 +187,7 @@ const LoadForm = (props) => {
                     <input className = "form-control" type = "text" onChange={changeEndAddressStreetAddress}/>
                 </div>
             </div>
+            <h2>Distance And Pay:</h2>
             <div className = "form-group" >
                 <label>Distance:</label>
                 <input className = "form-control" type = "number" onChange={(e) => setDistance(e.target.value)}/>
@@ -189,10 +196,16 @@ const LoadForm = (props) => {
                 <label>Pay:</label>
                 <input className = "form-control" type = "number" onChange={(e) => setPay(e.target.value)}/>
             </div>
-            <div className = "form-group">
-                <button>Submit</button>
+            <div>
+                _________
+            </div>
+            <div>
+                <button className ="btn btn-success">Add To Board</button>
             </div>
             </form>
+            <div>
+                <button style = {{margin:20}} className = "btn-success" onClick={goHome}>Home</button>
+            </div>
         </div>
     )
 
