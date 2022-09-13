@@ -167,7 +167,7 @@ const UpdateLoad = (props) => {
             <input value = {endorsements} className = "form-control" type = "text" onChange = {(e) => setEndorsements(e.target.value)}/>
         </div>
         <div className = "form-row">
-            <label>Weight:</label>
+            <label>Weight:(In lbs)</label>
             <input value = {weight} className = "form-control" type = "number" onChange={(e) => setWeight(e.target.value)}/>
         </div>
         <div className = "form-row">
@@ -211,11 +211,11 @@ const UpdateLoad = (props) => {
         </div>
         <h2>Distance And Pay:</h2>
         <div className = "form-group" >
-            <label>Distance:</label>
+            <label>Distance:(In Miles)</label>
             <input value = {distance} className = "form-control" type = "number" onChange={(e) => setDistance(e.target.value)}/>
         </div>
         <div className = "form-group">
-            <label>Pay:</label>
+            <label>Pay:(In USD)</label>
             <input value = {pay} className = "form-control" type = "number" onChange={(e) => setPay(e.target.value)}/>
         </div>
         <div>
