@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter, Routes, Router, Route} from 'react-router-dom'
+import {BrowserRouter, Routes, Router, Route, Navigate} from 'react-router-dom'
 import ALoad from './components/ALoad';
 import LoadForm from './components/LoadForm';
 import LoadList from './components/LoadList';
@@ -16,7 +16,9 @@ function App() {
       <Banner/>
       <BrowserRouter>
         <Routes>
-          <Route element = {<LoadList loads = {loads} setLoads = {setLoads}/>} path = "/home"/>
+          <Route path = "/" element = {<Navigate to="/home"/>}>
+          </Route>
+          <Route element = {<LoadList loads = {loads} setLoads = {setLoads}/>} path = "/home" default/>
           <Route element = {<LoadForm loads = {loads} setLoads = {setLoads}/>} path = "/loads/new"/>
           <Route element = {<ALoad/>} path = "/loads/:id"/>
           <Route element = {<UpdateLoad/>} path = "/loads/edit/:id"/>
